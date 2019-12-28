@@ -1,3 +1,5 @@
+package com.tahamalas.custom_image_picker
+
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
@@ -106,6 +108,80 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 }).check()
     }
 
+    fun getPhoneAlbums(activity: Activity): List<PhoneAlbum> {
+// Creating vectors to hold the final albums objects and albums names
+        val phoneAlbums = ArrayList<PhoneAlbum>()
+        val albumsNames = ArrayList<String>()
+
+        // which image properties are we querying
+        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
+
+        // content: style URI for the "primary" external storage volume
+        val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+
+        // Make the query.
+        val cur = activity.contentResolver.query(images,
+                projection, null, null, null// Ordering
+        )// Which columns to return
+        // Which rows to return (all rows)
+        // Selection arguments (none)
+
+        if (cur != null && cur!!.getCount() > 0) {
+            Log.i("DeviceImageManager", " query count=" + cur!!.getCount())
+
+            if (cur!!.moveToFirst()) {
+                var bucketName: String
+                var data: String
+                var imageId: String
+                val bucketNameColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+
+                val imageUriColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media.DATA)
+
+                val imageIdColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media._ID)
+
+                do {
+                    // Get the field values
+                    bucketName = cur!!.getString(bucketNameColumn)
+                    data = cur!!.getString(imageUriColumn)
+                    imageId = cur!!.getString(imageIdColumn)
+
+                    // Adding a new PhonePhoto object to phonePhotos vector
+                    val phonePhoto = PhonePhoto(Integer.valueOf(imageId), bucketName, data)
+
+                    if (albumsNames.contains(bucketName)) {
+                        for (album in phoneAlbums) {
+                            if (album.name == bucketName) {
+                                album.albumPhotos.add(phonePhoto)
+                                Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
+                                break
+                            }
+                        }
+                    } else {
+                        val album = PhoneAlbum()
+                        Log.i("DeviceImageManager", "A new album was created => $bucketName")
+                        album.setId(phonePhoto.id)
+                        album.setName(bucketName)
+                        album.setCoverUri(phonePhoto.photoUri)
+                        album.albumPhotos.add(phonePhoto)
+                        Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
+
+                        phoneAlbums.add(album)
+                        albumsNames.add(bucketName)
+                    }
+
+                } while (cur!!.moveToNext())
+            }
+
+            cur!!.close()
+            listener.onComplete(phoneAlbums)
+        } else {
+            listener.onError()
+        }
+    }
+
     fun getAllImageList(activity: Activity): ArrayList<String> {
         val allImageList = ArrayList<String>()
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
@@ -124,10 +200,13 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
         return allImageList
     }
 
+
     companion object {
+        @JvmStatic
         fun registerWith(registrar: Registrar) {
             val channel = MethodChannel(registrar.messenger(), "custom_image_picker")
             channel.setMethodCallHandler(CustomImagePickerPlugin(registrar.activity(), channel, registrar))
         }
     }
+
 }

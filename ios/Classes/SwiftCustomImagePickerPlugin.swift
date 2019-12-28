@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import Photos
 
 public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -9,7 +10,7 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
- if (call.method == "getPlatformVersion") {
+        if (call.method == "getPlatformVersion") {
             result("iOS " + UIDevice.current.systemVersion)
         }
         else if (call.method == "getAllImages") {
@@ -41,10 +42,10 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
                         if image != nil {
                             var imageData: Data?
                             if let cgImage = image!.cgImage, cgImage.renderingIntent == .defaultIntent {
-                                imageData = UIImageJPEGRepresentation(image!, 0.8)
+                                imageData = image!.jpegData(compressionQuality: 0.8)
                             }
                             else {
-                                imageData = UIImagePNGRepresentation(image!)
+                                imageData = image!.pngData()
                             }
                             let guid = ProcessInfo.processInfo.globallyUniqueString;
                             let tmpFile = String(format: "image_picker_%@.jpg", guid);

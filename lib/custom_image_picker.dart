@@ -7,7 +7,7 @@ class CustomImagePicker {
       const MethodChannel('custom_image_picker');
 
   static Future<Object> get getAllImages async {
-    Map<dynamic, dynamic> object = await _channel.invokeMethod('getAllImages');
+    List<dynamic> object = await _channel.invokeMethod('getAllImages');
     return object;
   }
 }
