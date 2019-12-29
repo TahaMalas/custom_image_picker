@@ -38,7 +38,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
             override fun onActivityStarted(activity: Activity) {}
 
             override fun onActivityResumed(activity: Activity) {
-                getPermissionResult(result!!, activity)
+                getPermissionResult(result!!, activity, "")
             }
 
             override fun onActivityPaused(activity: Activity) {}
@@ -53,20 +53,27 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         this.result = result
-        if (call.method == "getAllImages") {
-            getPermissionResult(result, activity)
+        if (call.method == "getAllImages" || call.method == "getAlbums") {
+            getPermissionResult(result, activity, call.method)
         } else {
             result.notImplemented()
         }
     }
 
 
-    fun getPermissionResult(result: Result, activity: Activity) {
+    fun getPermissionResult(result: Result, activity: Activity, methodName: String) {
         Dexter.withActivity(activity)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        result.success(getAllImageList(activity))
+                        when (methodName) {
+                            "getAllImages" -> {
+                                result.success(getAllImageList(activity))
+                            }
+                            "getAlbums" -> {
+                                result.success(getPhoneAlbums(activity))
+                            }
+                        }
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse) {
@@ -108,23 +115,17 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 }).check()
     }
 
-    fun getPhoneAlbums(activity: Activity): List<PhoneAlbum> {
-// Creating vectors to hold the final albums objects and albums names
-        val phoneAlbums = ArrayList<PhoneAlbum>()
-        val albumsNames = ArrayList<String>()
+    fun getPhoneAlbums(activity: Activity): String {
+        val phoneAlbums = mutableListOf<PhoneAlbum>()
+        val albumsNames = mutableListOf<String>()
 
-        // which image properties are we querying
         val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
 
-        // content: style URI for the "primary" external storage volume
         val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 
-        // Make the query.
         val cur = activity.contentResolver.query(images,
-                projection, null, null, null// Ordering
-        )// Which columns to return
-        // Which rows to return (all rows)
-        // Selection arguments (none)
+                projection, null, null, null
+        )
 
         if (cur != null && cur!!.getCount() > 0) {
             Log.i("DeviceImageManager", " query count=" + cur!!.getCount())
@@ -143,31 +144,27 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                         MediaStore.Images.Media._ID)
 
                 do {
-                    // Get the field values
                     bucketName = cur!!.getString(bucketNameColumn)
                     data = cur!!.getString(imageUriColumn)
                     imageId = cur!!.getString(imageIdColumn)
 
-                    // Adding a new PhonePhoto object to phonePhotos vector
                     val phonePhoto = PhonePhoto(Integer.valueOf(imageId), bucketName, data)
 
                     if (albumsNames.contains(bucketName)) {
                         for (album in phoneAlbums) {
                             if (album.name == bucketName) {
+                                album.increasePhotosCount()
                                 album.albumPhotos.add(phonePhoto)
                                 Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
                                 break
                             }
                         }
                     } else {
-                        val album = PhoneAlbum()
+                        val album = PhoneAlbum(phonePhoto.id, bucketName, phonePhoto.photoUri, mutableListOf())
                         Log.i("DeviceImageManager", "A new album was created => $bucketName")
-                        album.setId(phonePhoto.id)
-                        album.setName(bucketName)
-                        album.setCoverUri(phonePhoto.photoUri)
                         album.albumPhotos.add(phonePhoto)
                         Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
-
+                        album.increasePhotosCount()
                         phoneAlbums.add(album)
                         albumsNames.add(bucketName)
                     }
@@ -176,9 +173,16 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
             }
 
             cur!!.close()
-            listener.onComplete(phoneAlbums)
+            var string = "[ "
+            for (phoneAlbum in phoneAlbums) {
+                string += phoneAlbum.fromJson()
+                if (phoneAlbums.indexOf(phoneAlbum) != phoneAlbums.size - 1)
+                    string += ", "
+            }
+            string += "]"
+            return string
         } else {
-            listener.onError()
+            return "[]"
         }
     }
 
