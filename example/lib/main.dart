@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(color: Colors.blueGrey),
               ),
               subtitle: Text(
-                phoneAlbums[index].albumPhotos.length.toString(),
+                phoneAlbums[index].photosCount.toString(),
                 style: TextStyle(color: Colors.grey.withAlpha(200)),
               ),
               leading: Container(

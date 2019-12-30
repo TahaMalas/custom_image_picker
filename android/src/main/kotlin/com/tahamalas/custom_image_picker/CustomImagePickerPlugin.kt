@@ -119,7 +119,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
         val phoneAlbums = mutableListOf<PhoneAlbum>()
         val albumsNames = mutableListOf<String>()
 
-        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
+        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_ID)
 
         val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 
@@ -141,28 +141,28 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                         MediaStore.Images.Media.DATA)
 
                 val imageIdColumn = cur!!.getColumnIndex(
-                        MediaStore.Images.Media._ID)
+                        MediaStore.Images.Media.BUCKET_ID)
 
                 do {
                     bucketName = cur!!.getString(bucketNameColumn)
                     data = cur!!.getString(imageUriColumn)
                     imageId = cur!!.getString(imageIdColumn)
 
-                    val phonePhoto = PhonePhoto(Integer.valueOf(imageId), bucketName, data)
+//                    val phonePhoto = PhonePhoto(Integer.valueOf(imageId), bucketName, data)
 
                     if (albumsNames.contains(bucketName)) {
                         for (album in phoneAlbums) {
                             if (album.name == bucketName) {
                                 album.increasePhotosCount()
-                                album.albumPhotos.add(phonePhoto)
+//                                album.albumPhotos.add(phonePhoto)
                                 Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
                                 break
                             }
                         }
                     } else {
-                        val album = PhoneAlbum(phonePhoto.id, bucketName, phonePhoto.photoUri, mutableListOf())
+                        val album = PhoneAlbum(Integer.valueOf(imageId), bucketName, data)
                         Log.i("DeviceImageManager", "A new album was created => $bucketName")
-                        album.albumPhotos.add(phonePhoto)
+//                        album.albumPhotos.add(phonePhoto)
                         Log.i("DeviceImageManager", "A photo was added to album => $bucketName")
                         album.increasePhotosCount()
                         phoneAlbums.add(album)
