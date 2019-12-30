@@ -38,7 +38,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
             override fun onActivityStarted(activity: Activity) {}
 
             override fun onActivityResumed(activity: Activity) {
-                getPermissionResult(result!!, activity, "")
+                getPermissionResult(result!!, activity, "getAlbums", 0)
             }
 
             override fun onActivityPaused(activity: Activity) {}
@@ -53,15 +53,15 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         this.result = result
-        if (call.method == "getAllImages" || call.method == "getAlbums") {
-            getPermissionResult(result, activity, call.method)
+        if (call.method == "getAllImages" || call.method == "getAlbums" || call.method == "getPhotosOfAlbum") {
+            getPermissionResult(result, activity, call.method, call.arguments)
         } else {
             result.notImplemented()
         }
     }
 
 
-    fun getPermissionResult(result: Result, activity: Activity, methodName: String) {
+    fun getPermissionResult(result: Result, activity: Activity, methodName: String, arguments: Any?) {
         Dexter.withActivity(activity)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
@@ -72,6 +72,9 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                             }
                             "getAlbums" -> {
                                 result.success(getPhoneAlbums(activity))
+                            }
+                            "getPhotosOfAlbum" -> {
+                                result.success(getPhotosOfAlbum(activity, arguments as Int))
                             }
                         }
                     }
@@ -92,8 +95,6 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                         builder.setNegativeButton("Cancel") { dialog, id -> dialog.cancel() }
                         val alert = builder.create()
                         alert.show()
-
-
                     }
 
                     override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest, token: PermissionToken) {
@@ -115,11 +116,44 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 }).check()
     }
 
-    fun getPhoneAlbums(activity: Activity): String {
-        val phoneAlbums = mutableListOf<PhoneAlbum>()
-        val albumsNames = mutableListOf<String>()
+    fun getPhotosOfAlbum(activity: Activity, photoID: Int): String {
 
-        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media.BUCKET_ID)
+        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
+
+        val uri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, photoID.toString())
+
+        val cur = activity.contentResolver.query(uri,
+                projection, null, null, null
+        )
+
+        var albumName: String
+
+        if (cur != null && cur!!.count > 0) {
+            Log.i("DeviceImageManager", " query count=" + cur!!.getCount())
+
+            if (cur!!.moveToFirst()) {
+                val bucketNameColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+
+                albumName = cur!!.getString(bucketNameColumn)
+
+                cur!!.close()
+
+                return getPhotosFromAlbumName(albumName)
+
+            }
+
+            cur!!.close()
+            return "[]"
+        } else {
+            return "[]"
+        }
+    }
+
+    private fun getPhotosFromAlbumName(albumName: String): String {
+        val phonePhotos = mutableListOf<PhonePhoto>()
+
+        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
 
         val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
 
@@ -127,7 +161,63 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 projection, null, null, null
         )
 
-        if (cur != null && cur!!.getCount() > 0) {
+        if (cur != null && cur!!.count > 0) {
+            Log.i("DeviceImageManager", " query count=" + cur!!.count)
+
+            if (cur!!.moveToFirst()) {
+                var bucketName: String
+                var data: String
+                var imageId: String
+                val bucketNameColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media.BUCKET_DISPLAY_NAME)
+
+                val imageUriColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media.DATA)
+
+                val imageIdColumn = cur!!.getColumnIndex(
+                        MediaStore.Images.Media._ID)
+
+                do {
+                    bucketName = cur!!.getString(bucketNameColumn)
+                    data = cur!!.getString(imageUriColumn)
+                    imageId = cur!!.getString(imageIdColumn)
+
+                    if (albumName == bucketName) {
+
+                        phonePhotos.add(PhonePhoto(Integer.parseInt(imageId), bucketName, data))
+                    }
+
+
+                } while (cur!!.moveToNext())
+            }
+
+            cur!!.close()
+            var string = "[ "
+            for (phonePhoto in phonePhotos) {
+                string += phonePhoto.toJson()
+                if (phonePhotos.indexOf(phonePhoto) != phonePhotos.size - 1)
+                    string += ", "
+            }
+            string += "]"
+            return string
+        } else {
+            return "[]"
+        }
+    }
+
+    fun getPhoneAlbums(activity: Activity): String {
+        val phoneAlbums = mutableListOf<PhoneAlbum>()
+        val albumsNames = mutableListOf<String>()
+
+        val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
+
+        val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+
+        val cur = activity.contentResolver.query(images,
+                projection, null, null, null
+        )
+
+        if (cur != null && cur!!.count > 0) {
             Log.i("DeviceImageManager", " query count=" + cur!!.getCount())
 
             if (cur!!.moveToFirst()) {
@@ -141,7 +231,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                         MediaStore.Images.Media.DATA)
 
                 val imageIdColumn = cur!!.getColumnIndex(
-                        MediaStore.Images.Media.BUCKET_ID)
+                        MediaStore.Images.Media._ID)
 
                 do {
                     bucketName = cur!!.getString(bucketNameColumn)
@@ -175,7 +265,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
             cur!!.close()
             var string = "[ "
             for (phoneAlbum in phoneAlbums) {
-                string += phoneAlbum.fromJson()
+                string += phoneAlbum.toJson()
                 if (phoneAlbums.indexOf(phoneAlbum) != phoneAlbums.size - 1)
                     string += ", "
             }

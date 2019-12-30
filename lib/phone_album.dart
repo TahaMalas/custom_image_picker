@@ -1,5 +1,3 @@
-import 'package:custom_image_picker/phone_photo.dart';
-
 class PhoneAlbum {
   final int id;
   final String name;

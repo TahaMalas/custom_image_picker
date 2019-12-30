@@ -4,7 +4,7 @@ class PhoneAlbum(val id: Int, val name: String, val coverUri: String) {
 
     private var photosCount = 0
 
-    fun fromJson(): String {
+    fun toJson(): String {
         var string = "{\"id\": $id, \"name\": \"$name\", \"coverUri\": \"$coverUri\", \"photosCount\": $photosCount} "
         return string
     }
