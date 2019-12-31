@@ -74,7 +74,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                                 result.success(getPhoneAlbums(activity))
                             }
                             "getPhotosOfAlbum" -> {
-                                result.success(getPhotosOfAlbum(activity, arguments as Int))
+                                result.success(getPhotosOfAlbum(activity, arguments as String))
                             }
                         }
                     }
@@ -116,11 +116,11 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 }).check()
     }
 
-    fun getPhotosOfAlbum(activity: Activity, photoID: Int): String {
+    fun getPhotosOfAlbum(activity: Activity, photoID: String): String {
 
         val projection = arrayOf(MediaStore.Images.Media.BUCKET_DISPLAY_NAME, MediaStore.Images.Media.DATA, MediaStore.Images.Media._ID)
 
-        val uri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, photoID.toString())
+        val uri = Uri.withAppendedPath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, photoID)
 
         val cur = activity.contentResolver.query(uri,
                 projection, null, null, null
@@ -184,7 +184,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
                     if (albumName == bucketName) {
 
-                        phonePhotos.add(PhonePhoto(Integer.parseInt(imageId), bucketName, data))
+                        phonePhotos.add(PhonePhoto(imageId, bucketName, data))
                     }
 
 
@@ -250,7 +250,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                             }
                         }
                     } else {
-                        val album = PhoneAlbum(Integer.valueOf(imageId), bucketName, data)
+                        val album = PhoneAlbum(imageId, bucketName, data)
                         Log.i("DeviceImageManager", "A new album was created => $bucketName")
 //                        album.albumPhotos.add(phonePhoto)
                         Log.i("DeviceImageManager", "A photo was added to album => $bucketName")

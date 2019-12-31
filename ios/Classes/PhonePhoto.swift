@@ -8,10 +8,10 @@
 import Foundation
 
 class PhonePhoto {
-    let id:Int
+    let id:String
     let albumName:String
     let photoUri:String
-    init(id:Int, albumName:String, photoUri:String) {
+    init(id:String, albumName:String, photoUri:String) {
       self.id = id
       self.albumName = albumName
       self.photoUri = photoUri

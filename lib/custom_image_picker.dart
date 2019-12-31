@@ -28,7 +28,7 @@ class CustomImagePicker {
     return phoneAlbums;
   }
 
-  static Future<List<PhonePhoto>> getPhotosOfAlbum(int albumID) async {
+  static Future<List<PhonePhoto>> getPhotosOfAlbum(String albumID) async {
     String jsonString =
         await _channel.invokeMethod('getPhotosOfAlbum', albumID);
     print('json String is $jsonString');

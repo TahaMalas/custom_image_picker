@@ -1,7 +1,5 @@
-import 'dart:convert';
-
 class PhonePhoto {
-  final int id;
+  final String id;
   final String albumName;
   final String photoUri;
 

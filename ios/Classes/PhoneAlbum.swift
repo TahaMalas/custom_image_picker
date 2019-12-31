@@ -9,16 +9,20 @@ import Foundation
 
 class PhoneAlbum {
     
-    let id:Int
+    let id:String
     let name:String
     let coverUri:String
-    let albumPhotos: Array<PhonePhoto>
+    let photosCount: Int
     
-    init(id: Int, name: String, coverUri: String, albumPhotos: Array<PhonePhoto>) {
+    init(id: String, name: String, coverUri: String, photosCount: Int) {
         self.id = id
         self.name = name
         self.coverUri = coverUri
-        self.albumPhotos = albumPhotos
+        self.photosCount = photosCount
+    }
+    
+    func toJson() -> String {
+        return "{\"id\": \"\(id)\", \"name\": \"\(name)\", \"coverUri\": \"\(coverUri)\", \"photosCount\": \(photosCount)}"
     }
     
 }

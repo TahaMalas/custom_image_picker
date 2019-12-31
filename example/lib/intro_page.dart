@@ -7,23 +7,26 @@ class IntroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: <Widget>[
-          RaisedButton(
-            child: Text('Gallery'),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => GalleryPage()));
-            },
-          ),
-          RaisedButton(
-            child: Text('Images'),
-            onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => ImagesPage()));
-            },
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            RaisedButton(
+              child: Text('Gallery'),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => GalleryPage()));
+              },
+            ),
+            RaisedButton(
+              child: Text('Images'),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => ImagesPage()));
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

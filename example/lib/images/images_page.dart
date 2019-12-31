@@ -16,13 +16,14 @@ class _ImagesPageState extends State<ImagesPage> {
   @override
   void initState() {
     super.initState();
-    getGallery();
+    getImages();
   }
 
-  Future<void> getGallery() async {
+  Future<void> getImages() async {
     List<dynamic> allImages;
     try {
       allImages = await CustomImagePicker.getAllImages;
+      print('all images $allImages');
     } on PlatformException {}
 
     setState(() {

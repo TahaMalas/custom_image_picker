@@ -1,5 +1,5 @@
 class PhoneAlbum {
-  final int id;
+  final String id;
   final String name;
   final String coverUri;
   final int photosCount;
