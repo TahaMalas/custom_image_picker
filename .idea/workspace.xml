@@ -4,33 +4,25 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
+    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="Changelog update">
+      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_images_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/asynchronous_method_channel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/mock_result.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/mock_result.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/intro_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/intro_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/PhoneAlbum.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/PhoneAlbum.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/PhonePhoto.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/PhonePhoto.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_album.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_album.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/images/images_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/intro_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/intro_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/PhoneAlbum.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/PhoneAlbum.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/PhonePhoto.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/PhonePhoto.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/phone_album.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/phone_album.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/phone_photo.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -47,33 +39,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_24" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/custom_image_picker.dart">
+        <entry file="file://$PROJECT_DIR$/lib/asynchronous_method_channel.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/phone_album.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_page.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+            <state relative-caret-position="435">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -82,10 +53,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/phone_photo.dart">
+        <entry file="file://$PROJECT_DIR$/lib/custom_image_picker.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="492">
+              <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,6 +78,9 @@
       <find>PHImageManager</find>
       <find>the all images are</find>
       <find>getPhotosOfAlbum</find>
+      <find>getAlbums</find>
+      <find>photos are</find>
+      <find>startListening</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,8 +95,6 @@
         <option value="$PROJECT_DIR$/example/lib/app.dart" />
         <option value="$PROJECT_DIR$/example/lib/gallery/app.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/example/lib/intro_page.dart" />
         <option value="$PROJECT_DIR$/example/lib/images/images_page.dart" />
@@ -127,15 +102,21 @@
         <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" />
         <option value="$PROJECT_DIR$/lib/phone_album.dart" />
         <option value="$PROJECT_DIR$/lib/phone_photo.dart" />
-        <option value="$PROJECT_DIR$/lib/custom_image_picker.dart" />
         <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" />
+        <option value="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" />
+        <option value="$PROJECT_DIR$/lib/callback.dart" />
+        <option value="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" />
+        <option value="$PROJECT_DIR$/lib/custom_image_picker.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="981" />
+    <option name="height" value="979" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -143,6 +124,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,7 +141,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -246,7 +227,7 @@
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19595315" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3519702" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -259,7 +240,7 @@
       <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32970297" />
       <window_info anchor="bottom" id="Run" order="1" weight="0.3059406" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32970297" />
-      <window_info anchor="bottom" id="Debug" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32970297" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.32871288" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
@@ -267,7 +248,7 @@
       <window_info anchor="bottom" id="Logcat" order="8" weight="0.32970297" />
       <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32871288" />
+      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32871288" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -323,9 +304,6 @@
         <state relative-caret-position="-385" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$USER_HOME$/workspace/flutter/bin/cache/pkg/sky_engine/lib/convert/json.dart" />
     <entry file="file://$USER_HOME$/workspace/flutter/packages/flutter/lib/src/painting/image_provider.dart" />
     <entry file="file://$USER_HOME$/workspace/flutter/packages/flutter/lib/src/material/list_tile.dart" />
@@ -350,13 +328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -405,20 +376,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/intro_page.dart">
+    <entry file="file://$PROJECT_DIR$/lib/phone_photo.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="67" selection-start-line="17" selection-start-column="67" selection-end-line="17" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/images/images_page.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="960">
+          <caret line="64" selection-end-line="64" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -427,8 +398,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_page.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="45" column="67" lean-forward="true" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="67" />
+        <state relative-caret-position="614">
+          <caret line="58" column="20" lean-forward="true" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/development/flutter/packages/flutter/lib/src/material/page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/phone_album.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/intro_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/callback.dart" />
+    <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="25" column="3" selection-start-line="25" selection-start-column="3" selection-end-line="25" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/asynchronous_method_channel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
@@ -437,25 +467,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/custom_image_picker.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="492">
+          <caret line="41" column="3" lean-forward="true" selection-start-line="41" selection-start-column="3" selection-end-line="41" selection-end-column="3" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/phone_album.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/phone_photo.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

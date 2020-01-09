@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:custom_image_picker/custom_image_picker.dart';
+import 'package:custom_image_picker_example/gallery/gallery_images_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,11 +17,12 @@ class _GalleryPageState extends State<GalleryPage> {
   @override
   void initState() {
     super.initState();
-    getGallery();
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+        Future.delayed(Duration(milliseconds: 1000)).then((_) => getGallery()));
   }
 
   Future<void> getGallery() async {
-    List<PhoneAlbum> allImages;
+    List<PhoneAlbum> allImages = [];
     try {
       allImages = await CustomImagePicker.getAlbums;
     } on PlatformException {}
@@ -43,9 +45,13 @@ class _GalleryPageState extends State<GalleryPage> {
               itemBuilder: (context, index) {
                 return ListTile(
                   onTap: () async {
-                    final photos = await CustomImagePicker.getPhotosOfAlbum(
-                        phoneAlbums[index].id);
-                    print('photos are ${photos.length}');
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => GalleryImagesPage(
+                          albumID: phoneAlbums[index].id,
+                        ),
+                      ),
+                    );
                   },
                   title: Text(
                     phoneAlbums[index].name,
