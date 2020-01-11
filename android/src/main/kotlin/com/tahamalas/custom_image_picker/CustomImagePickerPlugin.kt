@@ -9,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.provider.MediaStore
 import android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE
 import android.provider.MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO
@@ -44,7 +45,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
             override fun onActivityStarted(activity: Activity) {}
 
             override fun onActivityResumed(activity: Activity) {
-                getPermissionResult(result!!, activity, "getAlbumList", 0)
+                getPermissionResult(result!!, activity, {})
             }
 
             override fun onActivityPaused(activity: Activity) {}
@@ -59,30 +60,49 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
     override fun onMethodCall(call: MethodCall, result: Result) {
         this.result = result
-        if (call.method == "getAllImages" || call.method == "getAlbums" || call.method == "getPhotosOfAlbum" || call.method == "getAlbumList") {
-            getPermissionResult(result, activity, call.method, call.arguments)
-        } else {
-            result.notImplemented()
+        when {
+            call.method == "startListening" -> getPermissionResult(result, activity, call.arguments)
+            call.method == "cancelListening" -> cancelListening(call.arguments, result)
+            else -> result.notImplemented()
         }
     }
 
-
-    fun getPermissionResult(result: Result, activity: Activity, methodName: String, arguments: Any?) {
+    fun getPermissionResult(result: Result, activity: Activity, arguments: Any?) {
         Dexter.withActivity(activity)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        when (methodName) {
-                            "getAllImages" -> {
-                                result.success(getAllImageList(activity))
-                            }
-                            "getAlbumList" -> {
-                                result.success(getAlbumList(MEDIA_TYPE_IMAGE, activity.contentResolver))
-                            }
-                            "getPhotosOfAlbum" -> {
-                                result.success(getPhotosOfAlbum(activity, arguments as String))
-                            }
+                        val argsMap = arguments as Map<*, *>
+
+                        when (val args = argsMap["id"] as Int) {
+                            CallbacksEnum.GET_IMAGES.ordinal -> startListening(args, result, "getAllImages")
+                            CallbacksEnum.GET_GALLERY.ordinal -> startListening(args, result, "getAlbumList")
+                            CallbacksEnum.GET_IMAGES_OF_GALLERY.ordinal -> startListening(args, result, "getPhotosOfAlbum")
                         }
+
+                        //                        when (methodName) {
+//                            "getAllImages" -> {
+//                                result.success(getAllImageList(activity))
+//                            }
+//                            "getAlbumList" -> {
+//                                result.success(getAlbumList(MEDIA_TYPE_IMAGE, activity.contentResolver))
+//                            }
+//                            "getPhotosOfAlbum" -> {
+//                                result.success(getPhotosOfAlbum(activity, arguments as String))
+//                            }
+//                        }
+
+//                        when (methodName) {
+//                            "getAllImages" -> {
+//                                result.success(getAllImageList(activity))
+//                            }
+//                            "getAlbumList" -> {
+//                                result.success(getAlbumList(MEDIA_TYPE_IMAGE, activity.contentResolver))
+//                            }
+//                            "getPhotosOfAlbum" -> {
+//                                result.success(getPhotosOfAlbum(activity, arguments as String))
+//                            }
+//                        }
                     }
 
                     override fun onPermissionDenied(response: PermissionDeniedResponse) {
@@ -122,33 +142,40 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 }).check()
     }
 
-    val callbackById: MutableMap<Int, Runnable> = mutableMapOf()
+    private val callbackById: MutableMap<Int, Runnable> = mutableMapOf()
 
-    fun getPhotosOfAlbum(args: Any, result: Result) {
+    fun startListening(args: Any, result: Result, methodName: String) {
         // Get callback id
-        val argsMap = args as Map<*, *>
-        val currentListenerId = argsMap["id"] as Int
-        // Prepare a timer like self calling task
-        val handler = Handler()
-        callbackById[currentListenerId] = object : Runnable {
-            override fun run() {
-                if (callbackById.containsKey(currentListenerId)) {
-                    val args: MutableMap<String, Any> = mutableMapOf()
-                    args["id"] = currentListenerId
-                    args["args"] = "Hello listener! " + (System.currentTimeMillis() / 1000)
-                    // Send some value to callback
-                    methodChannel.invokeMethod("callListener", args)
+        val currentListenerId = args as Int
+        val runnable = Runnable {
+            if (callbackById.containsKey(currentListenerId)) {
+                val argsMap: MutableMap<String, Any> = mutableMapOf()
+                argsMap["id"] = currentListenerId
+                when (methodName) {
+                    "getAllImages" -> {
+                        argsMap["args"] = getAllImageList(activity)
+                    }
+                    "getAlbumList" -> {
+                        argsMap["args"] = getAlbumList(MEDIA_TYPE_IMAGE, activity.contentResolver)
+                    }
+                    "getPhotosOfAlbum" -> {
+                        argsMap["args"] = getPhotosOfAlbum(activity, argsMap["args"] as String)
+                    }
                 }
-                handler.postDelayed(this, 1000)
+                // Send some value to callback
+                activity.runOnUiThread {
+                    methodChannel.invokeMethod("callListener", argsMap)
+                }
             }
         }
-        // Run task
-        handler.postDelayed(callbackById.get(currentListenerId), 1000);
+        val thread = Thread(runnable)
+        callbackById[currentListenerId] = runnable
+        thread.start()
         // Return immediately
         result.success(null)
     }
 
-    fun cancelListening(args: Any, result: Result) {
+    private fun cancelListening(args: Any, result: Result) {
         // Get callback id
         val currentListenerId = args as Int
         // Remove callback
@@ -157,7 +184,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
         result.success(null)
     }
 
-    fun getPhotosOfAlbum(activity: Activity, albumID: String): String {
+    private fun getPhotosOfAlbum(activity: Activity, albumID: String): String {
 
 
         val phonePhotos = mutableListOf<PhonePhoto>()
@@ -214,17 +241,17 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
 
     /*
-   *
-   *   mediaType could be one of
-   *
-   *   public static final int MEDIA_TYPE_IMAGE = 1;
-   *
-   *   public static final int MEDIA_TYPE_VIDEO = 3;
-   *
-   *   from android.provider.MediaStore class
-   *
-   */
-    fun getAlbumList(mediaType: Int, contentResolver: ContentResolver): String {
+    *
+    *   mediaType could be one of
+    *
+    *   public static final int MEDIA_TYPE_IMAGE = 1;
+    *
+    *   public static final int MEDIA_TYPE_VIDEO = 3;
+    *
+    *   from android.provider.MediaStore class
+    *
+    */
+    private fun getAlbumList(mediaType: Int, contentResolver: ContentResolver): String {
 
         val phoneAlbums = mutableListOf<PhoneAlbum>()
 
@@ -260,7 +287,6 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                 Log.d("AlbumScanner", "bucketId : $bucketId | name : $name | count : $count | path : $path")
 
                 phoneAlbums.add(PhoneAlbum(bucketId, name, path, count))
-
             }
             cursor.close()
             var string = "[ "
@@ -347,7 +373,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 //        }
 //    }
 
-    fun getAllImageList(activity: Activity): ArrayList<String> {
+    private fun getAllImageList(activity: Activity): ArrayList<String> {
         val allImageList = ArrayList<String>()
         val uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(MediaStore.Images.ImageColumns.DATA, MediaStore.Images.ImageColumns.DISPLAY_NAME, MediaStore.Images.ImageColumns.DATE_ADDED, MediaStore.Images.ImageColumns.TITLE)

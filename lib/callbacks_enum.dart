@@ -1,0 +1,5 @@
+enum CallbacksEnum {
+  GET_IMAGES,
+  GET_GALLERY,
+  GET_IMAGES_OF_GALLERY
+}
