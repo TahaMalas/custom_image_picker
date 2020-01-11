@@ -13,23 +13,23 @@ class GalleryPage extends StatefulWidget {
 
 class _GalleryPageState extends State<GalleryPage> {
   List<PhoneAlbum> phoneAlbums = [];
+  final customImagePicker = CustomImagePicker();
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) =>
-        Future.delayed(Duration(milliseconds: 1000)).then((_) => getGallery()));
+    WidgetsBinding.instance.addPostFrameCallback((_) => getGallery());
   }
 
   Future<void> getGallery() async {
-    List<PhoneAlbum> allImages = [];
     try {
-      allImages = await CustomImagePicker.getAlbums;
+      await customImagePicker.getAlbums(callback: (msg) {
+        print('the message is $msg');
+        setState(() {
+          phoneAlbums = msg;
+        });
+      });
     } on PlatformException {}
-
-    setState(() {
-      phoneAlbums = allImages;
-    });
   }
 
   @override

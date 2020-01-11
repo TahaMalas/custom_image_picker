@@ -18,6 +18,8 @@ class GalleryImagesPage extends StatefulWidget {
 class _GalleryImagesPageState extends State<GalleryImagesPage> {
   List<PhonePhoto> images = [];
 
+  final customImagePicker = CustomImagePicker();
+
   @override
   void initState() {
     super.initState();
@@ -30,7 +32,9 @@ class _GalleryImagesPageState extends State<GalleryImagesPage> {
   Future<void> getGallery() async {
     List<PhonePhoto> allImages = [];
     try {
-      allImages = await CustomImagePicker.getPhotosOfAlbum(widget.albumID);
+      final cancelElement = await customImagePicker.getPhotosOfAlbum(widget.albumID, callback: (msg) {
+        print('The message is $msg');
+      });
     } on PlatformException {}
 
     setState(() {

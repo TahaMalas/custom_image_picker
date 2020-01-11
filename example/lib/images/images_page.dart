@@ -22,7 +22,7 @@ class _ImagesPageState extends State<ImagesPage> {
   Future<void> getImages() async {
     List<dynamic> allImages;
     try {
-      allImages = await CustomImagePicker.getAllImages;
+//      allImages = await CustomImagePicker.getAllImages;
       print('all images $allImages');
     } on PlatformException {}
 
