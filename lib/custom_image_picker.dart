@@ -16,7 +16,7 @@ typedef void CancelListening();
 
 class CustomImagePicker {
   static const MethodChannel _channel =
-  const MethodChannel('custom_image_picker');
+      const MethodChannel('custom_image_picker');
 
   Map<int, MultiUseCallback> _callbacksById = new Map();
 
@@ -62,9 +62,9 @@ class CustomImagePicker {
     _callbacksById.remove(call.arguments["id"]);
   }
 
-  Future<CancelListening> _startListening(MultiUseCallback callback,
-      CallbacksEnum callbacksEnum,
-      {Map<String, dynamic> args}) async {
+  Future<CancelListening> _startListening(
+      MultiUseCallback callback, CallbacksEnum callbacksEnum,
+      {dynamic args}) async {
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
     _callbacksById[currentListenerId] = callback;
@@ -103,12 +103,13 @@ class CustomImagePicker {
   }
 
   Future<CancelListening> getPhotosOfAlbum(String albumID,
-      {@required MultiUseCallback callback}) async {
+      {@required MultiUseCallback callback, int page = 1}) async {
     return await _startListening(
       callback,
       CallbacksEnum.GET_IMAGES_OF_GALLERY,
       args: {
         'albumID': albumID,
+        'page': page,
       },
     );
 

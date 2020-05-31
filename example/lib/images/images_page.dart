@@ -12,23 +12,23 @@ class ImagesPage extends StatefulWidget {
 
 class _ImagesPageState extends State<ImagesPage> {
   List<dynamic> images = [];
+  final customImagePicker = CustomImagePicker();
 
   @override
   void initState() {
     super.initState();
-    getImages();
+    WidgetsBinding.instance.addPostFrameCallback((_) => getImages());
   }
 
   Future<void> getImages() async {
-    List<dynamic> allImages;
     try {
-//      allImages = await CustomImagePicker.getAllImages;
-      print('all images $allImages');
+      await customImagePicker.getAllImages(callback: (msg) {
+        print('the message is $msg');
+        setState(() {
+          images = msg;
+        });
+      });
     } on PlatformException {}
-
-    setState(() {
-      images = allImages;
-    });
   }
 
   @override
@@ -39,10 +39,10 @@ class _ImagesPageState extends State<ImagesPage> {
       ),
       body: images.isNotEmpty
           ? GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 4 / 5,
-        ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 4 / 5,
+              ),
               itemCount: images.length,
               itemBuilder: (context, index) {
                 return Center(
