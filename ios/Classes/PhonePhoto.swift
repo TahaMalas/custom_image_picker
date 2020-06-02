@@ -16,4 +16,8 @@ class PhonePhoto {
       self.albumName = albumName
       self.photoUri = photoUri
     }
+    
+    func toJson() -> String {
+        return "{\"id\": \"\(id)\", \"albumName\": \"\(albumName)\", \"photoUri\": \"\(photoUri)\"}"
+    }
 }

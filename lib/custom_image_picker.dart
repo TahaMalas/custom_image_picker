@@ -45,6 +45,7 @@ class CustomImagePicker {
 
           print('json String is $jsonString');
           final list = json.decode(jsonString) as List<dynamic>;
+          print('list is $list');
           final List<PhonePhoto> phonePhoto = [];
           for (dynamic item in list) {
             phonePhoto.add(PhonePhoto.fromMap(item as Map<String, dynamic>));
@@ -65,8 +66,10 @@ class CustomImagePicker {
   Future<CancelListening> _startListening(MultiUseCallback callback,
       CallbacksEnum callbacksEnum,
       {Map<String, dynamic> args}) async {
+
     _channel.setMethodCallHandler(_methodCallHandler);
     int currentListenerId = callbacksEnum.index;
+    print('current listener ${callbacksEnum}');
     _callbacksById[currentListenerId] = callback;
     await _channel.invokeMethod(
       "startListening",

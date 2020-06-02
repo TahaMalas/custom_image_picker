@@ -28,18 +28,15 @@ class _GalleryImagesPageState extends State<GalleryImagesPage> {
   }
 
 
-
   Future<void> getGallery() async {
-    List<PhonePhoto> allImages = [];
     try {
-      final cancelElement = await customImagePicker.getPhotosOfAlbum(widget.albumID, callback: (msg) {
-        print('The message is $msg');
+      print("album id ${widget.albumID}");
+      await customImagePicker.getPhotosOfAlbum(widget.albumID, callback: (msg) {
+        setState(() {
+          images = msg;
+        });
       });
     } on PlatformException {}
-
-    setState(() {
-      images = allImages;
-    });
   }
 
   @override

@@ -7,5 +7,13 @@ class PhonePhoto {
 
   factory PhonePhoto.fromMap(Map<String, dynamic> map) {
     return PhonePhoto(map["id"], map["albumName"], map["photoUri"]);
+
   }
+
+  @override
+  String toString() {
+    return 'PhonePhoto{id: $id, albumName: $albumName, photoUri: $photoUri}';
+  }
+
+
 }
