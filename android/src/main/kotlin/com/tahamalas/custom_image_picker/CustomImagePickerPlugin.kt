@@ -72,10 +72,10 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
                         val argsMap = arguments as Map<*, *>
 
-                        when (val args = argsMap["id"] as Int) {
-                            CallbacksEnum.GET_IMAGES.ordinal -> startListening(args, result, "getAllImages")
-                            CallbacksEnum.GET_GALLERY.ordinal -> startListening(args, result, "getAlbumList")
-                            CallbacksEnum.GET_IMAGES_OF_GALLERY.ordinal -> startListening(args, result, "getPhotosOfAlbum")
+                        when (argsMap["id"] as Int) {
+                            CallbacksEnum.GET_IMAGES.ordinal -> startListening(argsMap, result, "getAllImages")
+                            CallbacksEnum.GET_GALLERY.ordinal -> startListening(argsMap, result, "getAlbumList")
+                            CallbacksEnum.GET_IMAGES_OF_GALLERY.ordinal -> startListening(argsMap, result, "getPhotosOfAlbum")
                         }
 
                         //                        when (methodName) {
@@ -144,11 +144,14 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
 
     fun startListening(args: Any, result: Result, methodName: String) {
         // Get callback id
-        val currentListenerId = args as Int
+        println("the args are $args")
+        val argsFromFlutter = args as Map<*, *>
+        val currentListenerId = argsFromFlutter["id"] as Int
         val runnable = Runnable {
             if (callbackById.containsKey(currentListenerId)) {
                 val argsMap: MutableMap<String, Any> = mutableMapOf()
                 argsMap["id"] = currentListenerId
+
                 when (methodName) {
                     "getAllImages" -> {
                         argsMap["args"] = getAllImageList(activity)
@@ -157,7 +160,8 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
                         argsMap["args"] = getAlbumList(MEDIA_TYPE_IMAGE, activity.contentResolver)
                     }
                     "getPhotosOfAlbum" -> {
-                        argsMap["args"] = getPhotosOfAlbum(activity, argsMap["args"] as String)
+                        val callArgs = argsFromFlutter["args"] as Map<*, *>
+                        argsMap["args"] = getPhotosOfAlbum(activity, callArgs["albumID"] as String, callArgs["page"] as Int)
                     }
                 }
                 // Send some value to callback
@@ -182,8 +186,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
         result.success(null)
     }
 
-    private fun getPhotosOfAlbum(activity: Activity, albumID: String): String {
-
+    private fun getPhotosOfAlbum(activity: Activity, albumID: String, pageNumber: Int): String {
 
         val phonePhotos = mutableListOf<PhonePhoto>()
 
@@ -194,7 +197,7 @@ class CustomImagePickerPlugin(internal var activity: Activity, internal var meth
         val cur = activity.contentResolver.query(images,
                 projection, "${MediaStore.Images.ImageColumns.BUCKET_ID} == ?", arrayOf(
                 albumID
-        ), MediaStore.Images.Media.DATE_MODIFIED + " DESC"
+        ),  MediaStore.Images.Media.DATE_MODIFIED + " DESC " + " LIMIT ${(pageNumber - 1) * 50}, 50 "
         )
 
         if (cur != null && cur!!.count > 0) {

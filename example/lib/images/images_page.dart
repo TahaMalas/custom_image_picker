@@ -12,23 +12,23 @@ class ImagesPage extends StatefulWidget {
 
 class _ImagesPageState extends State<ImagesPage> {
   List<dynamic> images = [];
+  final customImagePicker = CustomImagePicker();
 
   @override
   void initState() {
     super.initState();
-    getImages();
+    WidgetsBinding.instance.addPostFrameCallback((_) => getImages());
   }
 
   Future<void> getImages() async {
+    List<dynamic> allImages;
     try {
-      CustomImagePicker().getAllImages(
-        callback: (images) {
-          print('all images $images');
-          setState(() {
-            this.images = images;
-          });
-        },
-      );
+      await customImagePicker.getAllImages(callback: (msg) {
+        print('the message is $msg');
+        setState(() {
+          images = msg;
+        });
+      });
     } on PlatformException {}
   }
 

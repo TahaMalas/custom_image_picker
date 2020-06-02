@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class GalleryImagesPage extends StatefulWidget {
-
   final String albumID;
 
   const GalleryImagesPage({Key key, @required this.albumID}) : super(key: key);
@@ -19,24 +18,39 @@ class _GalleryImagesPageState extends State<GalleryImagesPage> {
   List<PhonePhoto> images = [];
 
   final customImagePicker = CustomImagePicker();
+  final _controller = ScrollController();
+  int page = 1;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) =>
-        Future.delayed(Duration(milliseconds: 1000)).then((_) => getGallery()));
+    _controller.addListener(() {
+      if (_controller.position.pixels ==
+          _controller.position.maxScrollExtent) {
+        print('get new images $page');
+        page++;
+        getImagesOfGallery();
+      }
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) => getImagesOfGallery());
   }
 
-
-  Future<void> getGallery() async {
+  Future<void> getImagesOfGallery() async {
     try {
-      print("album id ${widget.albumID}");
-      await customImagePicker.getPhotosOfAlbum(widget.albumID, callback: (msg) {
+      await customImagePicker.getPhotosOfAlbum(widget.albumID, page: page,
+          callback: (msg) {
+        print('the message is $msg');
         setState(() {
-          images = msg;
+          images.addAll(msg);
         });
       });
     } on PlatformException {}
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,26 +61,32 @@ class _GalleryImagesPageState extends State<GalleryImagesPage> {
       ),
       body: images.isNotEmpty
           ? GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          childAspectRatio: 4 / 5,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return Center(
-            child: Container(
-              child: Image.file(
-                File(
-                  images[index].photoUri,
-                ),
+              controller: _controller,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 4 / 5,
               ),
-            ),
-          );
-        },
-      )
+              itemCount: images.length,
+              itemBuilder: (context, index) {
+                return Center(
+                  child: Container(
+                    child: Image.file(
+                      File(
+                        images[index].photoUri,
+                      ),
+                      repeat: ImageRepeat.noRepeat,
+                      fit: BoxFit.cover,
+                      matchTextDirection: true,
+                      gaplessPlayback: true,
+                      filterQuality: FilterQuality.none,
+                    ),
+                  ),
+                );
+              },
+            )
           : Center(
-        child: CircularProgressIndicator(),
-      ),
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }
