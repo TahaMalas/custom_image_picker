@@ -60,7 +60,7 @@ final customImagePicker = CustomImagePicker();
    );
 ```
 
-Each [photo](https://github.com/TahaMalas/custom_image_picker/blob/master/lib/phone_photo.dart){:target="_blank" rel="noopener"} contains the following data
+Each [photo](https://github.com/TahaMalas/custom_image_picker/blob/master/lib/phone_photo.dart) contains the following data
 
 ```dart
 class PhoneAlbum {
