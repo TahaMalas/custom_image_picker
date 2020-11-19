@@ -4,25 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
+    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="Paginated response for Android">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/images/images_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/phone_photo.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578754133176</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Paginated response for Android">
+      <created>1605794494899</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1605794494899</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -126,9 +117,14 @@
     <MESSAGE value="get images of gallery (Android)" />
     <MESSAGE value="Changelog update" />
     <MESSAGE value="Async calls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Async calls" />
+    <MESSAGE value="Paginated response for Android" />
+    <option name="LAST_COMMIT_MESSAGE" value="Paginated response for Android" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="558" y="118" key="CommitChangelistDialog2" timestamp="1605794493948">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state x="558" y="118" key="CommitChangelistDialog2/0.23.1920.987@0.23.1920.987" timestamp="1605794493948" />
     <state width="1878" height="262" key="GridCell.Tab.0.bottom" timestamp="1605794452252">
       <screen x="0" y="23" width="1920" height="987" />
     </state>
@@ -153,6 +149,10 @@
       <screen x="0" y="23" width="1920" height="983" />
     </state>
     <state x="589" y="215" key="NewModule_or_Project.wizard/0.23.1920.983@0.23.1920.983" timestamp="1605793643329" />
+    <state x="560" y="255" key="Vcs.Push.Dialog.v2" timestamp="1605794500650">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state x="560" y="255" key="Vcs.Push.Dialog.v2/0.23.1920.987@0.23.1920.987" timestamp="1605794500650" />
     <state width="440" height="148" key="javadoc.popup.new" timestamp="1603544358644">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
