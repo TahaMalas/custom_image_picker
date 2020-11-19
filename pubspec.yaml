@@ -1,6 +1,6 @@
 name: custom_image_picker
 description: A new Flutter plugin.
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/TahaMalas/custom_image_picker
 
 environment:

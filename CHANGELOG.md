@@ -1,3 +1,6 @@
+## 0.0.5
+README.md changes
+
 ## 0.0.4
 Pagination in images for Android
 
