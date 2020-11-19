@@ -35,51 +35,61 @@ class _GalleryPageState extends State<GalleryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('Custom image picker plugin'),
+      backgroundColor: Color.fromARGB(255, 61, 61, 61),
+      body: Column(
+        children: <Widget>[
+          AppBar(
+            backgroundColor: Colors.transparent,
+            centerTitle: false,
+            elevation: 0,
+            title: const Text('Select Album'),
+          ),
+          phoneAlbums.isNotEmpty
+              ? Container(
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: phoneAlbums.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        onTap: () async {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => GalleryImagesPage(
+                                albumID: phoneAlbums[index].id,
+                              ),
+                            ),
+                          );
+                        },
+                        title: Text(
+                          phoneAlbums[index].name,
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        subtitle: Text(
+                          phoneAlbums[index].photosCount.toString(),
+                          style: TextStyle(color: Colors.grey.withAlpha(200)),
+                        ),
+                        leading: Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(2),
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                File(phoneAlbums[index].coverUri),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                )
+              : Center(
+                  child: CircularProgressIndicator(),
+                ),
+        ],
       ),
-      body: phoneAlbums.isNotEmpty
-          ? ListView.builder(
-              itemCount: phoneAlbums.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () async {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (_) => GalleryImagesPage(
-                          albumID: phoneAlbums[index].id,
-                        ),
-                      ),
-                    );
-                  },
-                  title: Text(
-                    phoneAlbums[index].name,
-                    style: TextStyle(color: Colors.blueGrey),
-                  ),
-                  subtitle: Text(
-                    phoneAlbums[index].photosCount.toString(),
-                    style: TextStyle(color: Colors.grey.withAlpha(200)),
-                  ),
-                  leading: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: FileImage(
-                          File(phoneAlbums[index].coverUri),
-                        ),
-                      ),
-                    ),
-                  ),
-                );
-              },
-            )
-          : Center(
-              child: CircularProgressIndicator(),
-            ),
     );
   }
 }

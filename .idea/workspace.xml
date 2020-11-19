@@ -6,21 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_images_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/gallery/gallery_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/lib/images/images_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/phone_photo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/images/images_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/images/images_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/phone_photo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/phone_photo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/.dart_tool/" />
-    <ignored path="$PROJECT_DIR$/.idea/" />
-    <ignored path="$PROJECT_DIR$/.pub/" />
-    <ignored path="$PROJECT_DIR$/build/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,23 +32,6 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_24" />
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
-              <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -53,106 +39,16 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>PHImageManager</find>
-      <find>the all images are</find>
-      <find>getPhotosOfAlbum</find>
-      <find>getAlbums</find>
-      <find>photos are</find>
-      <find>startListening</find>
-      <find>get new images</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift" />
-        <option value="$PROJECT_DIR$/test/custom_image_picker_test.dart" />
-        <option value="$PROJECT_DIR$/example/ios/Runner/Info.plist" />
-        <option value="$PROJECT_DIR$/example/lib/app.dart" />
-        <option value="$PROJECT_DIR$/example/lib/gallery/app.dart" />
-        <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/CHANGELOG.md" />
-        <option value="$PROJECT_DIR$/example/lib/intro_page.dart" />
-        <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt" />
-        <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt" />
-        <option value="$PROJECT_DIR$/lib/phone_album.dart" />
-        <option value="$PROJECT_DIR$/lib/phone_photo.dart" />
-        <option value="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" />
-        <option value="$PROJECT_DIR$/lib/callback.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" />
-        <option value="$PROJECT_DIR$/lib/callbacks_enum.dart" />
-        <option value="$PROJECT_DIR$/example/lib/gallery/gallery_page.dart" />
-        <option value="$PROJECT_DIR$/example/lib/images/images_page.dart" />
-        <option value="$PROJECT_DIR$/lib/custom_image_picker.dart" />
-        <option value="$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="985" />
-  </component>
+  <component name="ProjectId" id="1jBRqON9gijM4oC0L8y2ML2sHmK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="custom_image_picker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="custom_image_picker" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -167,18 +63,6 @@
       <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="$PROJECT_DIR$/example/lib/gallery" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false" nameIsGenerated="true">
@@ -237,39 +121,6 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32960597" />
-      <window_info id="Structure" order="1" side_tool="true" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info id="Image Layers" order="3" />
-      <window_info id="Designer" order="4" />
-      <window_info id="Resources Explorer" order="5" />
-      <window_info id="Capture Tool" order="6" />
-      <window_info id="simpleUML" order="7" />
-      <window_info id="Build Variants" order="8" side_tool="true" />
-      <window_info id="Captures" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Dart Analysis" order="0" weight="0.32970297" />
-      <window_info anchor="bottom" id="Run" order="1" weight="0.34915254" />
-      <window_info anchor="bottom" id="TODO" order="2" weight="0.32970297" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32970297" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32871288" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32891566" />
-      <window_info anchor="bottom" id="Flutter Performance" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32970297" />
-      <window_info anchor="bottom" id="Logcat" order="8" weight="0.32970297" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.32871288" />
-      <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="right" id="Theme Preview" order="1" />
-      <window_info anchor="right" id="Flutter Inspector" order="2" />
-      <window_info anchor="right" id="Flutter Outline" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
-    </layout>
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="get gallery iOS (Test)" />
     <MESSAGE value="get images of gallery (Android)" />
@@ -277,232 +128,39 @@
     <MESSAGE value="Async calls" />
     <option name="LAST_COMMIT_MESSAGE" value="Async calls" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Classes/CustomImagePickerPlugin.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Classes/CustomImagePickerPlugin.m">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ios/Classes/SwiftCustomImagePickerPlugin.swift">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/custom_image_picker_test.dart" />
-    <entry file="file://$USER_HOME$/development/flutter/packages/flutter/lib/src/services/platform_channel.dart" />
-    <entry file="file://$USER_HOME$/development/flutter/bin/cache/pkg/sky_engine/lib/core/annotations.dart" />
-    <entry file="file://$PROJECT_DIR$/example/test/widget_test.dart" />
-    <entry file="file://$PROJECT_DIR$/example/ios/Podfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-385" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/workspace/flutter/bin/cache/pkg/sky_engine/lib/convert/json.dart" />
-    <entry file="file://$USER_HOME$/workspace/flutter/packages/flutter/lib/src/painting/image_provider.dart" />
-    <entry file="file://$USER_HOME$/workspace/flutter/packages/flutter/lib/src/material/list_tile.dart" />
-    <entry file="file://$USER_HOME$/development/flutter/packages/flutter/lib/src/material/raised_button.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/app.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/.flutter-plugins">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-79">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhonePhoto.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/ios/Runner/Info.plist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="44" column="86" selection-start-line="44" selection-start-column="86" selection-end-line="44" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/PhoneAlbum.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/phone_photo.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/development/flutter/packages/flutter/lib/src/material/page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/phone_album.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/intro_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/callback.dart" />
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/asynchronous_method_channel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/images/images_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/callbacks_enum.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/custom_image_picker.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="104" column="35" selection-start-line="104" selection-start-column="35" selection-end-line="104" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/development/flutter/bin/cache/pkg/sky_engine/lib/ui/painting.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="820" column="2" selection-start-line="820" selection-start-column="2" selection-end-line="820" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/gallery/gallery_images_page.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="WindowStateProjectService">
+    <state width="1878" height="262" key="GridCell.Tab.0.bottom" timestamp="1605794452252">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1878" height="302" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605110497782" />
+    <state width="1878" height="262" key="GridCell.Tab.0.bottom/0.23.1920.987@0.23.1920.987" timestamp="1605794452252" />
+    <state width="1878" height="262" key="GridCell.Tab.0.center" timestamp="1605794452250">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1878" height="302" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605110497778" />
+    <state width="1878" height="262" key="GridCell.Tab.0.center/0.23.1920.987@0.23.1920.987" timestamp="1605794452250" />
+    <state width="1878" height="262" key="GridCell.Tab.0.left" timestamp="1605794452249">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1878" height="302" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605110497776" />
+    <state width="1878" height="262" key="GridCell.Tab.0.left/0.23.1920.987@0.23.1920.987" timestamp="1605794452249" />
+    <state width="1878" height="262" key="GridCell.Tab.0.right" timestamp="1605794452251">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1878" height="302" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605110497780" />
+    <state width="1878" height="262" key="GridCell.Tab.0.right/0.23.1920.987@0.23.1920.987" timestamp="1605794452251" />
+    <state x="589" y="215" key="NewModule_or_Project.wizard" timestamp="1605793643329">
+      <screen x="0" y="23" width="1920" height="983" />
+    </state>
+    <state x="589" y="215" key="NewModule_or_Project.wizard/0.23.1920.983@0.23.1920.983" timestamp="1605793643329" />
+    <state width="440" height="148" key="javadoc.popup.new" timestamp="1603544358644">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="440" height="148" key="javadoc.popup.new/0.0.1920.1080@0.0.1920.1080" timestamp="1603544358644" />
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1603544348616">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603544348616" />
   </component>
   <component name="masterDetails">
     <states>

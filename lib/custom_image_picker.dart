@@ -21,7 +21,8 @@ class CustomImagePicker {
   Map<int, MultiUseCallback> _callbacksById = new Map();
 
   Future<void> _methodCallHandler(MethodCall call) async {
-    print('arguments are ${call.arguments["id"]}');
+    print('arguments id is ${call.arguments["id"]}');
+    print('arguments are ${call.arguments}');
     print('callbacks are $_callbacksById');
     switch (call.method) {
       case 'callListener':

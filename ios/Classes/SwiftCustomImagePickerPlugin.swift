@@ -32,7 +32,7 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
                 print("does contain key \(key == currentListenerId)")
                 return key == currentListenerId
             })) {
-                print("inside if")
+                print("inside if \(methodName)")
                 switch methodName {
                 case "getAllImages":
                     DispatchQueue.main.async {
@@ -47,7 +47,6 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
                         var allImages = [String]()
 
                         var totalIteration = 0
-                        print("fetchResult.count : \(fetchResult.count)")
 
                         var savedLocalIdentifiers = [String]()
 
@@ -88,7 +87,7 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
                         var argsMap: [String: Any] = [:]
                         argsMap["id"] = currentListenerId
                         var album:[PhoneAlbum] = [PhoneAlbum]()
-                        let userAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
+                        let userAlbums = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: nil)
                         userAlbums.enumerateObjects{ (collection, count: Int, stop: UnsafeMutablePointer) in
                             if collection is PHAssetCollection {
                                 if (collection.hasAssets()) {
@@ -138,57 +137,96 @@ public class SwiftCustomImagePickerPlugin: NSObject, FlutterPlugin {
                         let argsContent = argsMap["args"] as! [String:Any]
                         var album:[PhonePhoto] = [PhonePhoto]()
                         var assetCollection = PHAssetCollection()
+                        let imgManager = PHImageManager.default()
                         var albumFound = Bool()
-
                         DispatchQueue.main.async {
                             let fetchOptions = PHFetchOptions()
                             fetchOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
                             fetchOptions.predicate = NSPredicate(format: "localIdentifier = %@", argsContent["albumID"] as! String)
-                            let resultCollections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
+                            let resultCollections = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .any, options: fetchOptions)
                             if let firstObject = resultCollections.firstObject{
                                 //found the album
                                 assetCollection = firstObject
                                 albumFound = true
                             }   else { albumFound = false }
+                            print("test \(albumFound)")
                             let photoAssets = PHAsset.fetchAssets(in: assetCollection, options: nil) as! PHFetchResult<AnyObject>
-                            photoAssets.enumerateObjects { (collection, _, __) in
-                                if collection is PHAsset{
-                                    let asset = collection as! PHAsset
-                                    var imageData: Data?
-                                    let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
-                                    let image = asset.getAssetThumbnail(size: imageSize)
-                                    if let cgImage = image.cgImage, cgImage.renderingIntent == .defaultIntent {
-                                                                      
-                                        imageData = image.jpegData(compressionQuality: 0.8)
-                                    }
-                                    else {
-                                        imageData = image.pngData()
-                                    }
-                                   
+                            var allImages = [String]()
 
-                                    let guid = ProcessInfo.processInfo.globallyUniqueString;
-                                    let tmpFile = String(format: "image_picker_%@.jpg", guid);
-                                    let tmpDirectory = NSTemporaryDirectory();
-                                    let tmpPath = (tmpDirectory as NSString).appendingPathComponent(tmpFile);
-                                    if(FileManager.default.createFile(atPath: tmpPath, contents: imageData, attributes: [:])) {
-                                        album.append(PhonePhoto(id: asset.localIdentifier, albumName: assetCollection.localizedTitle!, photoUri: tmpPath))
-                                    
-                                    }
+                            var totalIteration = 0
 
-                                }
-                            }
-                            album.forEach { (phonePhoto) in
-                                var string = "[ "
-                                album.forEach { (phonePhoto) in
-                                    string += phonePhoto.toJson()
-                                    if (album.firstIndex(where: {$0 === phonePhoto}) != album.count - 1) {
-                                        string += ", "
+                            var savedLocalIdentifiers = [String]()
+                            print("photos cousnt \(photoAssets.count)")
+
+                            for index in 0..<photoAssets.count
+                            {
+                                print("index is \(index), total itereation \(totalIteration)")
+                                let asset = photoAssets.object(at: index) as! PHAsset
+                                let localIdentifier = asset.localIdentifier
+                                savedLocalIdentifiers.append(localIdentifier)
+                                imgManager.requestImage(for: asset, targetSize: CGSize(width: 512.0, height: 512.0), contentMode: PHImageContentMode.aspectFit, options: PHImageRequestOptions(), resultHandler:{(image, info) in
+
+                                    if image != nil {
+                                        var imageData: Data?
+                                        if let cgImage = image!.cgImage, cgImage.renderingIntent == .defaultIntent {
+                                                imageData = image!.jpegData(compressionQuality: 0.8)
+                                        }
+                                        else {
+                                            imageData = image!.pngData()
+                                        }
+                                        let guid = ProcessInfo.processInfo.globallyUniqueString;
+                                        let tmpFile = String(format: "image_picker_%@.jpg", guid);
+                                        let tmpDirectory = NSTemporaryDirectory();
+                                        let tmpPath = (tmpDirectory as NSString).appendingPathComponent(tmpFile);
+                                        if(FileManager.default.createFile(atPath: tmpPath, contents: imageData, attributes: [:])) {
+                                            
+                                        }
                                     }
-                                }
-                                string += "]"
-                                argsToSend["args"] = string
-                                SwiftCustomImagePickerPlugin.channel.invokeMethod("callListener", arguments: argsToSend)
+                                    totalIteration += 1
+                                    if totalIteration == (photoAssets.count) {
+                                        argsToSend["args"] = allImages
+                                        SwiftCustomImagePickerPlugin.channel.invokeMethod("callListener", arguments: argsToSend)
+                                    }
+                                })
                             }
+//                            photoAssets.enumerateObjects { (collection, _, __) in
+//                                if collection is PHAsset{
+//                                    let asset = collection as! PHAsset
+//                                    var imageData: Data?
+//                                    let imageSize = CGSize(width: asset.pixelWidth, height: asset.pixelHeight)
+//                                    let image = asset.getAssetThumbnail(size: imageSize)
+//                                    if let cgImage = image.cgImage, cgImage.renderingIntent == .defaultIntent {
+//
+//                                        imageData = image.jpegData(compressionQuality: 0.8)
+//                                    }
+//                                    else {
+//                                        imageData = image.pngData()
+//                                    }
+//
+//
+//                                    let guid = ProcessInfo.processInfo.globallyUniqueString;
+//                                    let tmpFile = String(format: "image_picker_%@.jpg", guid);
+//                                    let tmpDirectory = NSTemporaryDirectory();
+//                                    let tmpPath = (tmpDirectory as NSString).appendingPathComponent(tmpFile);
+//                                    if(FileManager.default.createFile(atPath: tmpPath, contents: imageData, attributes: [:])) {
+//                                        album.append(PhonePhoto(id: asset.localIdentifier, albumName: assetCollection.localizedTitle!, photoUri: tmpPath))
+//
+//                                    }
+//
+//                                }
+//                            }
+//                            album.forEach { (phonePhoto) in
+//                                var string = "[ "
+//                                album.forEach { (phonePhoto) in
+//                                    string += phonePhoto.toJson()
+//                                    if (album.firstIndex(where: {$0 === phonePhoto}) != album.count - 1) {
+//                                        string += ", "
+//                                    }
+//                                }
+//                                string += "]"
+//                                argsToSend["args"] = string
+//                                SwiftCustomImagePickerPlugin.channel.invokeMethod("callListener", arguments: argsToSend)
+//                            }
                         }
                     }
                     break

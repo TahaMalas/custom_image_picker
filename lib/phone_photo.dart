@@ -14,6 +14,4 @@ class PhonePhoto {
   String toString() {
     return 'PhonePhoto{id: $id, albumName: $albumName, photoUri: $photoUri}';
   }
-
-
 }

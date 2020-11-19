@@ -21,7 +21,7 @@ class _ImagesPageState extends State<ImagesPage> {
   }
 
   Future<void> getImages() async {
-    List<dynamic> allImages;
+    List<File> allImages;
     try {
       await customImagePicker.getAllImages(callback: (msg) {
         print('the message is $msg');
