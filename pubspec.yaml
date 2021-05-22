@@ -5,6 +5,8 @@ homepage: https://github.com/TahaMalas/custom_image_picker
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.12.0"
+
 
 dependencies:
   flutter:
