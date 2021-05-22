@@ -1,3 +1,6 @@
+## 0.5.0
+Migrate to null safety
+
 ## 0.0.5
 README.md changes
 

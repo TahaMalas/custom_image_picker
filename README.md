@@ -9,7 +9,7 @@ A flutter plugin that allows you to retrieve the device's images and albums in o
 
 ```yaml
 dependencies:
-  custom_image_picker: ^0.0.5
+  custom_image_picker: ^0.5.0
 ```
 
 
