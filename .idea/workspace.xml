@@ -7,23 +7,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/custom_image_picker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/custom_image_picker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/libraries/Dart_SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/asynchronous_method_channel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/asynchronous_method_channel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom_image_picker.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="Edit README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605803627578</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Migrate to null safety">
+      <created>1621690461115</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621690461115</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,7 +136,8 @@
     <MESSAGE value="Edit license" />
     <MESSAGE value="Edit CHANGELOG.md" />
     <MESSAGE value="Edit README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit README.md" />
+    <MESSAGE value="Migrate to null safety" />
+    <option name="LAST_COMMIT_MESSAGE" value="Migrate to null safety" />
   </component>
   <component name="WindowStateProjectService">
     <state x="100" y="123" width="1720" height="783" key="AVDManager" timestamp="1621689881859">
@@ -153,11 +145,39 @@
     </state>
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1621689742759" />
     <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.987@0.23.1920.987" timestamp="1621689881859" />
+    <state x="342" y="90" key="CommitChangelistDialog2" timestamp="1621690460333">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state x="342" y="90" key="CommitChangelistDialog2/0.23.1920.987@0.23.1920.987" timestamp="1621690460333" />
+    <state width="1467" height="264" key="GridCell.Tab.0.bottom" timestamp="1621690257744">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1467" height="264" key="GridCell.Tab.0.bottom/0.23.1920.987@0.23.1920.987" timestamp="1621690257744" />
+    <state width="1467" height="264" key="GridCell.Tab.0.center" timestamp="1621690257743">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1467" height="264" key="GridCell.Tab.0.center/0.23.1920.987@0.23.1920.987" timestamp="1621690257743" />
+    <state width="1467" height="264" key="GridCell.Tab.0.left" timestamp="1621690257742">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1467" height="264" key="GridCell.Tab.0.left/0.23.1920.987@0.23.1920.987" timestamp="1621690257742" />
+    <state width="1467" height="264" key="GridCell.Tab.0.right" timestamp="1621690257744">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="1467" height="264" key="GridCell.Tab.0.right/0.23.1920.987@0.23.1920.987" timestamp="1621690257744" />
     <state x="448" y="96" key="SettingsEditor" timestamp="1621688868534">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
     <state x="448" y="96" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1621686357959" />
     <state x="448" y="96" key="SettingsEditor/0.23.1920.985@0.23.1920.985" timestamp="1621688868534" />
+    <state x="354" y="254" key="Vcs.Push.Dialog.v2" timestamp="1621690466041">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state x="354" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.987@0.23.1920.987" timestamp="1621690466041" />
+    <state width="440" height="148" key="javadoc.popup.new" timestamp="1621690363601">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state width="440" height="148" key="javadoc.popup.new/0.23.1920.987@0.23.1920.987" timestamp="1621690363601" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
