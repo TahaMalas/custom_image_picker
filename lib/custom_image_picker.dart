@@ -27,7 +27,7 @@ class CustomImagePicker {
     switch (call.method) {
       case 'callListener':
         if (call.arguments["id"] as int == CallbacksEnum.GET_IMAGES.index) {
-          _callbacksById[call.arguments["id"]](call.arguments["args"]);
+          _callbacksById[call.arguments["id"]]!(call.arguments["args"]);
         } else if (call.arguments["id"] as int ==
             CallbacksEnum.GET_GALLERY.index) {
           String jsonString = call.arguments["args"];
@@ -39,7 +39,7 @@ class CustomImagePicker {
             phoneAlbums.add(PhoneAlbum.fromMap(item as Map<String, dynamic>));
           }
           print('items are $phoneAlbums');
-          _callbacksById[call.arguments["id"]](phoneAlbums);
+          _callbacksById[call.arguments["id"]]!(phoneAlbums);
         } else if (call.arguments["id"] as int ==
             CallbacksEnum.GET_IMAGES_OF_GALLERY.index) {
           String jsonString = call.arguments["args"];
@@ -51,7 +51,7 @@ class CustomImagePicker {
           for (dynamic item in list) {
             phonePhoto.add(PhonePhoto.fromMap(item as Map<String, dynamic>));
           }
-          _callbacksById[call.arguments["id"]](phonePhoto);
+          _callbacksById[call.arguments["id"]]!(phonePhoto);
         }
 //        _callbacksById[call.arguments["id"]](call.arguments["args"]);
         break;
@@ -85,14 +85,14 @@ class CustomImagePicker {
   }
 
   Future<CancelListening> getAllImages(
-      {@required MultiUseCallback callback}) async {
+      {required MultiUseCallback callback}) async {
     return await _startListening(callback, CallbacksEnum.GET_IMAGES);
 //    List<dynamic> object = await _channel.invokeMethod('getAllImages');
 //    return object;
   }
 
   Future<CancelListening> getAlbums(
-      {@required MultiUseCallback callback}) async {
+      {required MultiUseCallback callback}) async {
     return await _startListening(callback, CallbacksEnum.GET_GALLERY);
 
 //    String jsonString = await _channel.invokeMethod('getAlbumList');
@@ -106,7 +106,7 @@ class CustomImagePicker {
   }
 
   Future<CancelListening> getPhotosOfAlbum(String albumID,
-      {@required MultiUseCallback callback, int page = 1}) async {
+      {required MultiUseCallback callback, int page = 1}) async {
     return await _startListening(
       callback,
       CallbacksEnum.GET_IMAGES_OF_GALLERY,

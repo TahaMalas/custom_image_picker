@@ -29,10 +29,10 @@ class AsynchronousMethodChannel implements MethodChannel {
   final Map<String, Completer> _jobs = {};
 
   static Future _handle(
-      MethodCall call,
-      Map<String, Completer> jobs, [
-        Future Function(MethodCall call) handler,
-      ]) async {
+    MethodCall call,
+    Map<String, Completer> jobs, [
+    Future Function(MethodCall call)? handler,
+  ]) async {
     if (call.arguments is Map &&
         (call.arguments as Map).containsKey("__job_id")) {
       final jobId = call.arguments["__job_id"];
@@ -41,12 +41,12 @@ class AsynchronousMethodChannel implements MethodChannel {
         print("$TAG method#${call.method},jobId#$jobId,result#$result");
       switch (call.method) {
         case "__result":
-          final item = jobs[jobId]..complete(result);
+          final item = jobs[jobId]!..complete(result);
           jobs.remove(item);
           if (DEBUG) print("$TAG completer#$item,future#${await item.future}");
           break;
         case "__error":
-          final item = jobs[jobId]
+          final item = jobs[jobId]!
             ..completeError(PlatformException(
               code: result["errorCode"],
               message: result["errorMessage"],
@@ -66,29 +66,28 @@ class AsynchronousMethodChannel implements MethodChannel {
           break;
       }
       return null;
-    } else if (handler != null) {
+    } else if (handler != null){
       return handler(call);
     }
   }
 
   static Future _handleMock(
-      MethodCall call,
-      Map<String, Completer> jobs, [
-        Future Function(MethodCall call, MockResult result) handler,
-      ]) async {
-    assert(handler != null);
+    MethodCall call,
+    Map<String, Completer> jobs, [
+    Future Function(MethodCall call, MockResult? result)? handler,
+  ]) async {
     if (call.arguments is Map &&
         (call.arguments as Map).containsKey("__job_id")) {
       final jobId = call.arguments["__job_id"];
       final arguments = call.arguments["__argument"];
       final rawCall = MethodCall(call.method, arguments);
       final onSuccess = <T>(T result) {
-        final item = jobs[jobId]..complete(result);
+        final item = jobs[jobId]!..complete(result);
         jobs.remove(item);
       };
       final onError =
           (String errorCode, String errorMessage, String errorDetails) {
-        final item = jobs[jobId]
+        final item = jobs[jobId]!
           ..completeError(PlatformException(
             code: errorCode,
             message: errorMessage,
@@ -97,11 +96,11 @@ class AsynchronousMethodChannel implements MethodChannel {
         jobs.remove(item);
       };
 
-      final MockResult result = MockResult(onSuccess, onError);
-      handler(rawCall, result);
+      final MockResult result = MockResult((onSuccess as void Function<T>(T)) as void Function<T>(T), onError);
+      handler!(rawCall, result);
       return null;
     } else {
-      return handler(call, null);
+      return handler!(call, null);
     }
   }
 
@@ -131,7 +130,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   ///   platform plugin.
   Future<T> invokeAsynchronousMethod<T>(String method, [arguments]) async {
     final jobId = generateId();
-    final job = Completer<T>();
+    final Completer<T?> job = Completer<T>();
     _jobs[jobId] = job;
     if (DEBUG) {
       print("$TAG method#$method,jobId#$jobId,arguments#$arguments");
@@ -148,7 +147,7 @@ class AsynchronousMethodChannel implements MethodChannel {
       throw StateError(
           "On the platform side, you must first call result.success(null) and then execute the asynchronous task.");
     }
-    return job.future;
+    return job.future as FutureOr<T>;
   }
 
   /// Creates a [AsynchronousMethodChannel] with the specified [name].
@@ -159,12 +158,10 @@ class AsynchronousMethodChannel implements MethodChannel {
   /// The [name] and [codec] arguments cannot be null. The default [ServicesBinding.defaultBinaryMessenger]
   /// instance is used if [binaryMessenger] is null.
   AsynchronousMethodChannel(
-      String name, [
-        MethodCodec codec = const StandardMethodCodec(),
-        BinaryMessenger binaryMessenger,
-      ])  : assert(name != null),
-        assert(codec != null),
-        this._channel = MethodChannel(name, codec, binaryMessenger) {
+    String name, [
+    MethodCodec codec = const StandardMethodCodec(),
+    BinaryMessenger? binaryMessenger,
+  ])  : this._channel = MethodChannel(name, codec, binaryMessenger) {
     setMethodCallHandler((call) async {
       throw UnimplementedError(
           "This method ${call.method} has not been implemented yet");
@@ -192,7 +189,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   ///  * [invokeMethod], which this call delegates to.
   @override
   Future<List<T>> invokeListMethod<T>(String method, [arguments]) {
-    return _channel.invokeListMethod(method, arguments);
+    return _channel.invokeListMethod(method, arguments) as Future<List<T>>;
   }
 
   /// An implementation of [invokeMethod] that can return typed maps.
@@ -206,7 +203,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   ///  * [invokeMethod], which this call delegates to.
   @override
   Future<Map<K, V>> invokeMapMethod<K, V>(String method, [arguments]) {
-    return _channel.invokeMapMethod(method, arguments);
+    return _channel.invokeMapMethod(method, arguments) as Future<Map<K, V>>;
   }
 
   /// Invokes a [method] on this channel with the specified [arguments].
@@ -379,7 +376,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   ///    for how to access method call arguments on Android.
   @override
   Future<T> invokeMethod<T>(String method, [arguments]) {
-    return _channel.invokeMethod(method, arguments);
+    return _channel.invokeMethod(method, arguments) as Future<T>;
   }
 
   /// The logical channel on which communication happens, not null.
@@ -401,7 +398,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   /// similarly to what happens if no method call handler has been set.
   /// Any other exception results in an error envelope being sent.
   @override
-  void setMethodCallHandler(Future Function(MethodCall call) handler) {
+  void setMethodCallHandler(Future Function(MethodCall call)? handler) {
     _channel.setMethodCallHandler((call) async {
       _handle(call, _jobs, handler);
     });
@@ -411,7 +408,7 @@ class AsynchronousMethodChannel implements MethodChannel {
   @Deprecated(
       "Use setMockAsynchronousMethodCallHandler instead of setMockMethodCallHandler.")
   @override
-  void setMockMethodCallHandler(Future Function(MethodCall call) handler) {
+  void setMockMethodCallHandler(Future? Function(MethodCall call)? handler) {
     throw UnsupportedError(
         "Use setMockAsynchronousMethodCallHandler instead of setMockMethodCallHandler.");
   }
@@ -435,8 +432,18 @@ class AsynchronousMethodChannel implements MethodChannel {
   /// [MethodCodec.encodeSuccessEnvelope], to act as if platform plugin had
   /// returned that value.
   void setMockAsynchronousMethodCallHandler(
-      Future Function(MethodCall call, MockResult result) handler) {
+      Future Function(MethodCall call, MockResult? result) handler) {
     _channel.setMockMethodCallHandler(
-            (call) async => _handleMock(call, _jobs, handler));
+        (call) async => _handleMock(call, _jobs, handler));
+  }
+
+  @override
+  bool checkMethodCallHandler(Future? Function(MethodCall call)? handler) {
+    return true;
+  }
+
+  @override
+  bool checkMockMethodCallHandler(Future? Function(MethodCall call)? handler) {
+    return true;
   }
 }

@@ -3,11 +3,25 @@
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/custom_image_picker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/custom_image_picker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/asynchronous_method_channel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/asynchronous_method_channel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/lib/custom_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/custom_image_picker/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/asynchronous_method_channel.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/custom_image_picker.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/custom_image_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,17 +45,18 @@
   <component name="ProjectId" id="1jBRqON9gijM4oC0L8y2ML2sHmK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -56,6 +71,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -102,17 +118,22 @@
       <option name="project" value="LOCAL" />
       <updated>1605794494899</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Edit README.md">
+      <created>1605803524059</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1605803524059</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Edit README.md">
+      <created>1605803627578</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1605803627578</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="get gallery iOS (Test)" />
@@ -123,133 +144,20 @@
     <MESSAGE value="Edit LICENSE" />
     <MESSAGE value="Edit license" />
     <MESSAGE value="Edit CHANGELOG.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit CHANGELOG.md" />
+    <MESSAGE value="Edit README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit README.md" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="689" y="325" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605795165429">
+    <state x="100" y="123" width="1720" height="783" key="AVDManager" timestamp="1621689881859">
+      <screen x="0" y="23" width="1920" height="987" />
+    </state>
+    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1621689742759" />
+    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.987@0.23.1920.987" timestamp="1621689881859" />
+    <state x="448" y="96" key="SettingsEditor" timestamp="1621688868534">
       <screen x="0" y="23" width="1920" height="985" />
     </state>
-    <state x="689" y="325" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1920.985@0.23.1920.985" timestamp="1605795165429" />
-    <state x="558" y="104" width="784" height="964" key="CommitChangelistDialog2" timestamp="1605803523840">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="558" y="104" width="784" height="964" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1605803523840" />
-    <state x="558" y="118" key="CommitChangelistDialog2/0.23.1920.985@0.23.1920.985" timestamp="1605795196882" />
-    <state x="558" y="118" key="CommitChangelistDialog2/0.23.1920.987@0.23.1920.987" timestamp="1605794493948" />
-    <state width="1878" height="301" key="GridCell.Tab.0.bottom" timestamp="1605803546038">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="301" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605803546038" />
-    <state width="1878" height="262" key="GridCell.Tab.0.bottom/0.23.1920.987@0.23.1920.987" timestamp="1605794452252" />
-    <state width="1878" height="301" key="GridCell.Tab.0.center" timestamp="1605803546027">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="301" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605803546027" />
-    <state width="1878" height="262" key="GridCell.Tab.0.center/0.23.1920.987@0.23.1920.987" timestamp="1605794452250" />
-    <state width="1878" height="301" key="GridCell.Tab.0.left" timestamp="1605803546025">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="301" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605803546025" />
-    <state width="1878" height="262" key="GridCell.Tab.0.left/0.23.1920.987@0.23.1920.987" timestamp="1605794452249" />
-    <state width="1878" height="301" key="GridCell.Tab.0.right" timestamp="1605803546028">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="301" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605803546028" />
-    <state width="1878" height="262" key="GridCell.Tab.0.right/0.23.1920.987@0.23.1920.987" timestamp="1605794452251" />
-    <state x="589" y="215" key="NewModule_or_Project.wizard" timestamp="1605793643329">
-      <screen x="0" y="23" width="1920" height="983" />
-    </state>
-    <state x="589" y="215" key="NewModule_or_Project.wizard/0.23.1920.983@0.23.1920.983" timestamp="1605793643329" />
-    <state x="560" y="254" key="Vcs.Push.Dialog.v2" timestamp="1605803527688">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="560" y="254" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1605803527688" />
-    <state x="560" y="255" key="Vcs.Push.Dialog.v2/0.23.1920.985@0.23.1920.985" timestamp="1605795205812" />
-    <state x="560" y="255" key="Vcs.Push.Dialog.v2/0.23.1920.987@0.23.1920.987" timestamp="1605794500650" />
-    <state width="440" height="148" key="javadoc.popup.new" timestamp="1603544358644">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="440" height="148" key="javadoc.popup.new/0.0.1920.1080@0.0.1920.1080" timestamp="1603544358644" />
-    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup" timestamp="1603544348616">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="625" y="241" width="670" height="676" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1603544348616" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>Android API 27 Platform</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>custom_image_picker</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Flutter for Android</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <state x="448" y="96" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1621686357959" />
+    <state x="448" y="96" key="SettingsEditor/0.23.1920.985@0.23.1920.985" timestamp="1621688868534" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
