@@ -146,6 +146,7 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
                 allImages.add(cursor.getString(0))
             }
         }
+        query?.close()
         return allImages
     }
 
@@ -188,7 +189,7 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
                     arrayOf("count(" + MediaStore.Images.ImageColumns._ID + ")"),
                     selection,
                     null,
-                    bucketOrderBy
+                    bucketOrderBy,
                 )
                 var count = 0
                 if (countCursor != null) {
@@ -199,9 +200,8 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
                 phoneAlbums.add(PhoneAlbum(bucketId, name, path, count))
             }
         }
-
-        Log.e("ALBUMS", "[${phoneAlbums.joinToString(", ")}]" )
-        return "[${phoneAlbums.joinToString(", ")}]" // toJson
+        query?.close()
+        return "[${phoneAlbums.joinToString(", ")}]"
     }
 
     private fun getPhotosOfAlbum(context: Context, albumID: String, pageNumber: Int): String {
