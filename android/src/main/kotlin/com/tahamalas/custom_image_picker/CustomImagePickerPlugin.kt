@@ -86,10 +86,10 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
 
                 when (methodName) {
                     "getAllImages" -> {
-                        argsMap["args"] = getAllImageList()
+                        argsMap["args"] = getAllImagesList()
                     }
                     "getAlbumList" -> {
-                        argsMap["args"] = getAlbumList()
+                        argsMap["args"] = getAlbumsList()
                     }
                     "getPhotosOfAlbum" -> {
                         val callArgs = argsFromFlutter["args"] as Map<*, *>
@@ -123,72 +123,32 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
         result.success(null)
     }
 
-    private fun getPhotosOfAlbum(context: Context, albumID: String, pageNumber: Int): String {
-
-        val phonePhotos = mutableListOf<PhonePhoto>()
-
-        val projection = arrayOf(
-            MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
-            MediaStore.Images.Media.DATA,
-            MediaStore.Images.Media._ID
-        )
-
-        val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-
-        val cur = context.contentResolver.query(
-            images,
+    private fun getAllImagesList(): ArrayList<String> {
+        val allImages = ArrayList<String>()
+        val collection =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
+            } else {
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            }
+        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
+        val sortOrder = "${MediaStore.Images.ImageColumns.DATA} DESC"
+        val query = context.contentResolver.query(
+            collection,
             projection,
-            "${MediaStore.Images.ImageColumns.BUCKET_ID} == ?",
-            arrayOf(
-                albumID
-            ),
-            MediaStore.Images.Media.DATE_MODIFIED + " DESC " + " LIMIT ${(pageNumber - 1) * 50}, 50 "
+            null,
+            null,
+            sortOrder
         )
-
-        if (cur != null && cur.count > 0) {
-            //Log.i("DeviceImageManager", " query count=" + cur.count)
-
-            if (cur.moveToFirst()) {
-                var bucketName: String
-                var data: String
-                var imageId: String
-                val bucketNameColumn = cur.getColumnIndex(
-                    MediaStore.Images.Media.BUCKET_DISPLAY_NAME
-                )
-
-                val imageUriColumn = cur.getColumnIndex(
-                    MediaStore.Images.Media.DATA
-                )
-
-                val imageIdColumn = cur.getColumnIndex(
-                    MediaStore.Images.Media._ID
-                )
-
-                do {
-                    bucketName = cur.getString(bucketNameColumn)
-                    data = cur.getString(imageUriColumn)
-                    imageId = cur.getString(imageIdColumn)
-                    phonePhotos.add(PhonePhoto(imageId, bucketName, data))
-
-                } while (cur.moveToNext())
+        query?.use { cursor ->
+            while (cursor.moveToNext()) {
+                allImages.add(cursor.getString(0))
             }
-
-            cur.close()
-            var string = "[ "
-            for (phonePhoto in phonePhotos) {
-                string += phonePhoto.toJson()
-                if (phonePhotos.indexOf(phonePhoto) != phonePhotos.size - 1)
-                    string += ", "
-            }
-            string += "]"
-            return string
-        } else {
-            return "[]"
         }
-
+        return allImages
     }
 
-    private fun getAlbumList(): String {
+    private fun getAlbumsList(): String {
         val phoneAlbums = mutableListOf<PhoneAlbum>()
         val contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(
@@ -249,28 +209,56 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
         }
     }
 
-    private fun getAllImageList(): ArrayList<String> {
-        val allImages = ArrayList<String>()
-        val collection =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
-            } else {
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            }
-        val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
-        val sortOrder = "${MediaStore.Images.ImageColumns.DATA} DESC"
-        val query = context.contentResolver.query(
-            collection,
-            projection,
-            null,
-            null,
-            sortOrder
+    private fun getPhotosOfAlbum(context: Context, albumID: String, pageNumber: Int): String {
+        val phonePhotos = mutableListOf<PhonePhoto>()
+        val projection = arrayOf(
+            MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+            MediaStore.Images.Media.DATA,
+            MediaStore.Images.Media._ID
         )
-        query?.use { cursor ->
-            while (cursor.moveToNext()) {
-                allImages.add(cursor.getString(0))
+        val images = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        val cur = context.contentResolver.query(
+            images,
+            projection,
+            "${MediaStore.Images.ImageColumns.BUCKET_ID} == ?",
+            arrayOf(
+                albumID
+            ),
+            MediaStore.Images.Media.DATE_MODIFIED + " DESC " + " LIMIT ${(pageNumber - 1) * 50}, 50 "
+        )
+        if (cur != null && cur.count > 0) {
+            //Log.i("DeviceImageManager", " query count=" + cur.count)
+            if (cur.moveToFirst()) {
+                var bucketName: String
+                var data: String
+                var imageId: String
+                val bucketNameColumn = cur.getColumnIndex(
+                    MediaStore.Images.Media.BUCKET_DISPLAY_NAME
+                )
+                val imageUriColumn = cur.getColumnIndex(
+                    MediaStore.Images.Media.DATA
+                )
+                val imageIdColumn = cur.getColumnIndex(
+                    MediaStore.Images.Media._ID
+                )
+                do {
+                    bucketName = cur.getString(bucketNameColumn)
+                    data = cur.getString(imageUriColumn)
+                    imageId = cur.getString(imageIdColumn)
+                    phonePhotos.add(PhonePhoto(imageId, bucketName, data))
+                } while (cur.moveToNext())
             }
+            cur.close()
+            var string = "[ "
+            for (phonePhoto in phonePhotos) {
+                string += phonePhoto.toJson()
+                if (phonePhotos.indexOf(phonePhoto) != phonePhotos.size - 1)
+                    string += ", "
+            }
+            string += "]"
+            return string
+        } else {
+            return "[]"
         }
-        return allImages
     }
 }
