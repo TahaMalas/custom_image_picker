@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.provider.MediaStore
+import android.util.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -149,38 +150,41 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
     }
 
     private fun getAlbumsList(): String {
-        val phoneAlbums = mutableListOf<PhoneAlbum>()
-        val contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        val phoneAlbums = ArrayList<PhoneAlbum>()
+        val collection =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                MediaStore.Images.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
+            } else {
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+            }
         val projection = arrayOf(
-            MediaStore.Images.ImageColumns.BUCKET_ID,
-            MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
-            MediaStore.Images.ImageColumns.DATE_TAKEN,
-            MediaStore.Images.ImageColumns.DATA
+            MediaStore.Images.Media.BUCKET_ID,
+            MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
+            MediaStore.MediaColumns.DATA,
         )
-        val bucketGroupBy =
-            "1) GROUP BY ${MediaStore.Images.ImageColumns.BUCKET_ID}, (${MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME}"
         val bucketOrderBy = MediaStore.Images.Media.DATE_MODIFIED + " DESC"
-
-        val cursor =
+        val query =
             context.contentResolver.query(
-                contentUri,
+                collection,
                 projection,
-                bucketGroupBy,
                 null,
-                bucketOrderBy
+                null,
+                bucketOrderBy,
             )
-
-        if (cursor != null) {
+        query?.use { cursor ->
             while (cursor.moveToNext()) {
                 val bucketId =
-                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.ImageColumns.BUCKET_ID))
+                    query.getString(query.getColumnIndexOrThrow(MediaStore.Images.ImageColumns.BUCKET_ID))
+                if (phoneAlbums.any{ album -> album.id == bucketId}) {
+                    continue
+                }
                 val name =
-                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME))
+                    query.getString(query.getColumnIndexOrThrow(MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME))
                 val path =
-                    cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)) // Thumb image path
+                    query.getString(query.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA)) // Thumb image path
                 val selection = MediaStore.Images.Media.BUCKET_ID + "='" + bucketId + "'"
                 val countCursor = context.contentResolver.query(
-                    contentUri,
+                    collection,
                     arrayOf("count(" + MediaStore.Images.ImageColumns._ID + ")"),
                     selection,
                     null,
@@ -192,21 +196,12 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
                     count = countCursor.getInt(0)
                     countCursor.close()
                 }
-                //Log.d("AlbumScanner", "bucketId : $bucketId | name : $name | count : $count | path : $path")
                 phoneAlbums.add(PhoneAlbum(bucketId, name, path, count))
             }
-            cursor.close()
-            var string = "[ "
-            for (phoneAlbum in phoneAlbums) {
-                string += phoneAlbum.toJson()
-                if (phoneAlbums.indexOf(phoneAlbum) != phoneAlbums.size - 1)
-                    string += ", "
-            }
-            string += "]"
-            return string
-        } else {
-            return "[]"
         }
+
+        Log.e("ALBUMS", "[${phoneAlbums.joinToString(", ")}]" )
+        return "[${phoneAlbums.joinToString(", ")}]" // toJson
     }
 
     private fun getPhotosOfAlbum(context: Context, albumID: String, pageNumber: Int): String {
