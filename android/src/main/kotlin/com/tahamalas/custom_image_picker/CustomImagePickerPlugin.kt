@@ -133,7 +133,7 @@ class CustomImagePickerPlugin : FlutterPlugin, MethodCallHandler, ActivityAware 
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             }
         val projection = arrayOf(MediaStore.Images.ImageColumns.DATA)
-        val sortOrder = "${MediaStore.Images.ImageColumns.DATA} DESC"
+        val sortOrder = "${MediaStore.Images.ImageColumns.DATA} ASC"
         val query = context.contentResolver.query(
             collection,
             projection,
