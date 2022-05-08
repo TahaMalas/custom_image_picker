@@ -7,8 +7,39 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0d2f5738-ec8c-406e-a416-0cae5af72be9" name="Default Changelist" comment="Migrate to null safety">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/custom_image_picker.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/tahamalas/custom_image_picker/CustomImagePickerPlugin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/tahamalas/custom_image_picker_example/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/tahamalas/custom_image_picker_example/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-reflect-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-reflect.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib-jdk7-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib-jdk7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib-jdk8-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib-jdk8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-stdlib.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-test-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/kotlin-test.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +65,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -42,7 +76,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -52,7 +86,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false" nameIsGenerated="true">
+    <configuration name="Run example" type="FlutterRunConfigurationType" factoryName="Flutter" singleton="false">
       <option name="filePath" value="$PROJECT_DIR$/example/lib/main.dart" />
       <method v="2" />
     </configuration>
@@ -135,6 +169,18 @@
     <option name="localTasksCounter" value="10" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="get gallery iOS (Test)" />
     <MESSAGE value="get images of gallery (Android)" />
@@ -147,46 +193,6 @@
     <MESSAGE value="Edit README.md" />
     <MESSAGE value="Migrate to null safety" />
     <option name="LAST_COMMIT_MESSAGE" value="Migrate to null safety" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1720" height="783" key="AVDManager" timestamp="1621689881859">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.985@0.23.1920.985" timestamp="1621689742759" />
-    <state x="100" y="123" width="1720" height="783" key="AVDManager/0.23.1920.987@0.23.1920.987" timestamp="1621689881859" />
-    <state x="342" y="90" key="CommitChangelistDialog2" timestamp="1621690580726">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state x="342" y="90" key="CommitChangelistDialog2/0.23.1920.987@0.23.1920.987" timestamp="1621690580726" />
-    <state width="1467" height="264" key="GridCell.Tab.0.bottom" timestamp="1621690257744">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state width="1467" height="264" key="GridCell.Tab.0.bottom/0.23.1920.987@0.23.1920.987" timestamp="1621690257744" />
-    <state width="1467" height="264" key="GridCell.Tab.0.center" timestamp="1621690257743">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state width="1467" height="264" key="GridCell.Tab.0.center/0.23.1920.987@0.23.1920.987" timestamp="1621690257743" />
-    <state width="1467" height="264" key="GridCell.Tab.0.left" timestamp="1621690257742">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state width="1467" height="264" key="GridCell.Tab.0.left/0.23.1920.987@0.23.1920.987" timestamp="1621690257742" />
-    <state width="1467" height="264" key="GridCell.Tab.0.right" timestamp="1621690257744">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state width="1467" height="264" key="GridCell.Tab.0.right/0.23.1920.987@0.23.1920.987" timestamp="1621690257744" />
-    <state x="448" y="96" key="SettingsEditor" timestamp="1621688868534">
-      <screen x="0" y="23" width="1920" height="985" />
-    </state>
-    <state x="448" y="96" key="SettingsEditor/0.23.1920.983@0.23.1920.983" timestamp="1621686357959" />
-    <state x="448" y="96" key="SettingsEditor/0.23.1920.985@0.23.1920.985" timestamp="1621688868534" />
-    <state x="354" y="254" key="Vcs.Push.Dialog.v2" timestamp="1621690585342">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state x="354" y="254" key="Vcs.Push.Dialog.v2/0.23.1920.987@0.23.1920.987" timestamp="1621690585342" />
-    <state width="440" height="148" key="javadoc.popup.new" timestamp="1621690363601">
-      <screen x="0" y="23" width="1920" height="987" />
-    </state>
-    <state width="440" height="148" key="javadoc.popup.new/0.23.1920.987@0.23.1920.987" timestamp="1621690363601" />
   </component>
   <component name="simpleUML.UMLToolWindowPlugin">
     <General>
